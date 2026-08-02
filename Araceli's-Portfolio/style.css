@@ -1,7 +1,7 @@
 body {
     background-color: lightgray;
     color: black;
-    font-family: Arial sans-serif;
+    font-family: Arial, sans-serif;
     padding: 20px;
 }
 
@@ -27,6 +27,26 @@ p {
     border: 3px solid navy;
 }
 
+.layout-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+}
+
+@media (min-width: 768px) {
+    .layout-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;      
+    }
+}
+@media (min-width: 1200px) {
+    .layout-container {
+        max-width: 1200px;
+        margin: 0 auto;;      
+    }
+}
 
 img {
     max-width: 300px;
