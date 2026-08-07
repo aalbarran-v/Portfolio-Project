@@ -27,11 +27,23 @@
 
         <section class="box">
             <h2>Contact Me</h2>
-            <form>
-                <p>Name: <input type="text" value="Araceli Albarran" /></p>
-                <p>Email: <input type="email" value="aalbarran@my.campus.edu" /></p>
-                <p>Message:<br> <textarea placeholder="Contact Hours: 1pm-11pm"></textarea></p>
-                <button type="button">Next</button>
+            <form action="#" method="post">
+                <fieldset>
+                    <legend>Contact Information</legend>
+                    <p>
+                     <label for="home-name">Name:</label>
+                <input type="text" id="home-name" name="fullname" value="Araceli Albarran" />
+                    </p>
+                    <p>
+                        <label for="home-email">Email:</label>
+                <input type="email" id="home-email" name="email" value="aalbarran@my.campus.edu" />
+                    </p>
+                    <p>
+                        <label for="home-message">Message:</label><br>
+                        <textarea id="home-message" name="message" placeholder="Contact Hours: 1pm-11pm"></textarea>
+                    </p>
+                    </fieldset>
+                <button type="submit">Next</button>
             </form>
         </section>
     </main>
