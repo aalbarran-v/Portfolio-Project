@@ -24,3 +24,26 @@ if (submitBtn) {
     submitBtn.style.color = '#000000';
   });
 }
+const listInput = document.getElementById('list-input');
+const addButton = document.getElementById('add-btn');
+const dynamicList = document.getElementById('dynamic-list');
+
+if (addButton) {
+  addButton.addEventListener('click', function() {
+    const itemText = listInput.value.trim();
+
+    if (itemText !== '') {
+      const newLi = document.createElement('li');
+      newLi.textContent = itemText + ' ';
+
+      const deleteButton = document.createElement('button');
+      deleteButton.textContent = 'Remove';
+      deleteButton.addEventListener('click', function() {
+        dynamicList.removeChild(newLi);
+      });
+      newLi.appendChild(deleteButton);
+      dynamicList.appendChild(newLi);
+      listInput.value = '';
+    }
+  });
+}
