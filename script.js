@@ -47,3 +47,61 @@ if (addButton) {
     }
   });
 }
+const userForm = document.getElementById('userForm');
+if (userForm) {
+  const fields = [
+    { input: document.getElementById('name'), error: document.getElementById('nameError') },
+    { input: document.getElementById('email'), error: document.getElementById('emailError') },
+    { input: document.getElementById('phoneNumber'), error: document.getElementById('phoneError') },
+    { input: document.getElementById('userName'), error: document.getElementById('userError') }
+  ];
+  fields.forEach(field => {
+    if (field.input) {
+      field.input.addEventListener('input', () => {
+        field.error.style.display = 'none';
+      });
+    }
+  });
+  userForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    let isValid = true;
+
+    fields.forEach(field => {
+      const val = field.input.value.trim();
+
+      if (val === '') {
+        field.error.innerText = 'This field is required.';
+        field.error.style.display = 'block';
+        isValid = false;
+      } else if (field.input.id === 'email' && !val.includes('@')) {
+        field.error.innerText = 'Email must contain an @ symbol.';
+        field.error.style.display = 'block';
+        isValid = false;
+      }
+    });
+
+    if (isValid) {
+      fetchPublicApi();
+    }
+  });
+}
+function fetchPublicApi() {
+  const resultDiv = document.getElementById('api-result');
+  if (!resultDiv) return;
+
+  resultDiv.innerText = 'Fetching data...';
+
+  fetch('https://jsonplaceholder.typicode.com/todos/1')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response error: ' + response.statusText);
+      }
+      return response.json();
+    })
+    .then(data => {
+      resultDiv.innerHTML = `<strong>API Success!</strong> Sample Title: "${data.title}"`;
+    })
+    .catch(error => {
+      resultDiv.innerHTML = `<span style="color: red;">API Error: ${error.message}</span>`;
+    });
+}

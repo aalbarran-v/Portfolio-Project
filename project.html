@@ -37,15 +37,44 @@
                 <h2>Project Title 3: Patient Data Spreadsheet</h2>
                 <p><strong>Description:</strong> Organizing and calculating patient data including height, weight, blood pressure, and BMI.</p>
             </article>
-
             <hr>
-
+            <article>
+                <h2>Interactive Demo: Form Validation & API</h2>
+                <form id="userForm" novalidate>
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                     <span class="error-message" id="nameError"></span>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+                <div class="form-group">
+                    <label for="phoneNumber">Phone Number:</label>
+                    <input type="tel" id="phoneNumber" name="phoneNumber">
+                    <span class="error-message" id="phoneError"></span>
+                    </div>
+                    <div class="form-group">
+            <label for="userName">Username:</label>
+            <input type="text" id="userName" name="userName" required>
+            <span class="error-message" id="userError"></span>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+    <div id="api-result">API status: Waiting for submission...</div>
+</article>
+                    <button type="submit">Submit</button>
+                </form>
+                <p><strong>Description:</strong> Creating an interactive demo that showcases form validation and API integration.</p>
+            </article>
+            <hr>
             <div>
                  <a href="project.html" class="button-link">View All Projects</a>
             </div>
         </section>
     </main>
-
     <footer>
         <p>Portfolio 2026</p>
     </footer>
